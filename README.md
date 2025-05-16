@@ -40,5 +40,5 @@ Instructions on how to build this project can be found in the [BUILDING.md](BUIL
 * [moodycamel::ConcurrentQueue](https://github.com/cameron314/concurrentqueue) for semaphores and fast, lock-free MPMC queues
 * [Gamepad Motion Helpers](https://github.com/JibbSmart/GamepadMotionHelpers) for sensor fusion and calibration algorithms to implement gyro aiming
 * [Majora's Mask Decompilation](https://github.com/zeldaret/mm) for headers and some function definitions, used for making patches or some enhancements
-* [Zelda 64: Recompiled] (https://github.com/Zelda64Recomp/Zelda64Recomp)
+* [Zelda 64: Recompiled](https://github.com/Zelda64Recomp/Zelda64Recomp)
 * [Ares emulator](https://github.com/ares-emulator/ares) for RSP vector instruction reference implementations, used in RSP recompilation
