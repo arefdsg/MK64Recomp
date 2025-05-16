@@ -1,4 +1,4 @@
-include(BundleUtilities)
+MK64Recomp(BundleUtilities)
 
 # Check for pkgx installation
 find_program(PKGX_EXECUTABLE pkgx)
@@ -10,10 +10,10 @@ if (CMAKE_GENERATOR STREQUAL "Xcode")
 endif()
 
 # Use generator expressions to get the absolute path to the bundle
-set(APPS "${BUILD_PREFIX}Zelda64Recompiled.app/Contents/MacOS/Zelda64Recompiled")
+set(APPS "${BUILD_PREFIX}MK64Recompiled.app/Contents/MacOS/MK64Recompiled")
 
 # Set up framework search paths
-set(DIRS "${BUILD_PREFIX}Zelda64Recompiled.app/Contents/Frameworks")
+set(DIRS "${BUILD_PREFIX}MK64Recompiled.app/Contents/Frameworks")
 
 # Detect if we're using pkgx
 if(PKGX_EXECUTABLE)

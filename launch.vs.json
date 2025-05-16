@@ -5,8 +5,8 @@
     {
       "type": "default",
       "project": "CMakeLists.txt",
-      "projectTarget": "Zelda64Recompiled.exe",
-      "name": "Zelda64Recompiled.exe",
+      "projectTarget": "MK64Recompiled.exe",
+      "name": "MK64Recompiled.exe",
       "currentDir": "${workspaceRoot}"
     }
   ]
