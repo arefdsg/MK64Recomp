@@ -9,10 +9,10 @@
 	url = https://github.com/ubawurinna/freetype-windows-binaries
 [submodule "lib/lunasvg"]
 	path = lib/lunasvg
-	url = https://github.com/sammycage/lunasvg
+	url = https://github.com/sammycage/lunasvg/
 [submodule "lib/N64ModernRuntime"]
 	path = lib/N64ModernRuntime
 	url = https://github.com/N64Recomp/N64ModernRuntime.git
 [submodule "lib/slot_map"]
 	path = lib/slot_map
-	url = https://github.com/SergeyMakeev/slot_map
+	url = https://github.com/SergeyMakeev/slot_map/tree/b8ac8ebd89aa1cd18f20ce6e4ad1cac716f1933f
