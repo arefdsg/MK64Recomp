@@ -20,7 +20,7 @@ For Linux the instructions for Ubuntu are provided, but you can find the equival
 
 ```bash
 # For Ubuntu, simply run:
-sudo apt-get install cmake ninja-build libsdl2-dev libgtk-3-dev lld llvm clang xdelta
+sudo apt-get install cmake ninja-build libsdl2-dev libgtk-3-dev lld llvm clang
 ```
 
 ### Windows
@@ -41,7 +41,6 @@ Now that you have the required files, you must build [N64Recomp](https://github.
 
 After that, go back to the repository root, and run the following commands:
 ```bash
-./xdelta -d -s mk64.us.elf mk64elfpatch.xdelta mk64.us.patch.elf | cp ./mk64.us.patch.elf mk64.us.elf
 ./N64Recomp us.rev1.toml
 ./RSPRecomp aspMain.us.rev1.toml
 ```
