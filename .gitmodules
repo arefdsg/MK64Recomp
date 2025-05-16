@@ -16,3 +16,6 @@
 [submodule "lib/slot_map"]
 	path = lib/slot_map
 	url = https://github.com/SergeyMakeev/slot_map/tree/b8ac8ebd89aa1cd18f20ce6e4ad1cac716f1933f
+[submodule "MK64RecompSyms"]
+	path = MK64RecompSyms
+	url = https://github.com/arefdsg/MK64RecompSyms

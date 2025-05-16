@@ -1,26 +1,22 @@
-# Config file for Majora's Mask NTSC 1.0 Recompilation.
+# Config file for Mario Kart 64 NTSC Recompilation.
 
 [input]
 entrypoint = 0x80000400
 # Paths are relative to the location of this config file.
 output_func_path = "RecompiledFuncs"
-#relocatable_sections_path = "overlays.us.rev1.txt"
-elf_path = "mk64.us.elf"
-#symbols_file_path = "dump.toml"
+symbols_file_path = "MK64RecompSyms/mk64.us.syms.toml"
 rom_file_path = "mk64.us.z64"
 
-#manual_funcs = [
-#	{ name = "__osContRamRead_rekomp", section = ".main", vram = 0x800D5CB0, size = 0x3B0 },
-#    { name = "__osContRamWrite_rekomp", section = ".main", vram = 0x800D72F0, size = 0x3B0 },
-#]
-
 [patches]
-#stubs = [
-#	"__osContRamRead_rekomp",
-#    "__osContRamWrite_rekomp",
-#]
-
-#ignored = [
-#	"bcopy_recomp",
-#	"bzero_recomp"
-#]
+stubs = [
+	"osInvalDCache_recomp",
+	"osInvalICache_recomp",
+	"osWritebackDCacheAll_recomp",
+	"osGetCount_recomp",
+	"osPfsInit_recomp",
+	"osPfsIsPlug_recomp",
+	"__osPfsSelectBank_recomp",
+	"__osContRamRead_recomp",
+	"__osContRamWrite_recomp",
+	"rmonPrintf_recomp",
+]
