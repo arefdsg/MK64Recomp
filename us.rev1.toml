@@ -4,19 +4,125 @@
 entrypoint = 0x80000400
 # Paths are relative to the location of this config file.
 output_func_path = "RecompiledFuncs"
+#elf_path = "mk64.us.elf"
 symbols_file_path = "MK64RecompSyms/mk64.us.syms.toml"
 rom_file_path = "mk64.us.z64"
 
 [patches]
 stubs = [
-	"osInvalDCache_recomp",
-	"osInvalICache_recomp",
-	"osWritebackDCacheAll_recomp",
-	"osGetCount_recomp",
-	"osPfsInit_recomp",
-	"osPfsIsPlug_recomp",
-	"__osPfsSelectBank_recomp",
-	"__osContRamRead_recomp",
-	"__osContRamWrite_recomp",
-	"rmonPrintf_recomp",
+	"__osPfsDeclearPage"
 ]
+
+ignored = [
+
+]
+
+[[patches.instruction]]
+func = "func_80040C54"
+vram = 0x80040C8C
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_802A8348"
+vram = 0x802A8380
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_802A841C"
+vram = 0x802A8454
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_802A80B0"
+vram = 0x802A80D8
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_800AA2EC"
+vram = 0x800AA43C
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_800B6014"
+vram = 0x800B6050
+value = 0x00000000
+
+[[patches.instruction]]
+func = "controller_pak_1_status"
+vram = 0x800B5C54
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_80091D74"
+vram = 0x80091E14
+value = 0x00000000
+
+[[patches.instruction]]
+func = "controller_pak_2_status"
+vram = 0x800B5E5C
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_8800B6AF8"
+vram = 0x800B6B1C
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_800B5F30"
+vram = 0x800B5F6C
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_80091D74"
+vram = 0x80091DF0
+value = 0x00000000
+
+[[patches.instruction]]
+func = "check_for_controller_pak"
+vram = 0x800B5B58
+value = 0x00000000
+
+[[patches.instruction]]
+func = "__osBlockSum"
+vram = 0x800CFF80
+value = 0x00000000
+
+[[patches.instruction]]
+func = "__osBlockSum"
+vram = 0x800CFFE0
+value = 0x00000000
+
+[[patches.instruction]]
+func = "__osBlockSum"
+vram = 0x800D0028
+value = 0x00000000
+
+[[patches.instruction]]
+func = "__osBlockSum"
+vram = 0x800CFFC0
+value = 0x00000000
+
+[[patches.instruction]]
+func = "debug_print_ghost_kart_character_id"
+vram = 0x800B4588
+value = 0x00000000
+
+[[patches.instruction]]
+func = "debug_print_ghost_kart_character_id"
+vram = 0x800B45A8
+value = 0x00000000
+
+[[patches.instruction]]
+func = "debug_print_ghost_kart_character_id"
+vram = 0x800B45C8
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_80095BD0"
+vram = 0x80095C24
+value = 0x00000000
+
+[[patches.instruction]]
+func = "func_80095BD0"
+vram = 0x80095C38
+value = 0x00000000
