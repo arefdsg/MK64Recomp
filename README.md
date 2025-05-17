@@ -28,6 +28,8 @@ To play on Steam Deck, extract the Linux build onto your deck. Then, in desktop 
 
 ## Known Issues
 * Overlays such as MSI Afterburner and other software such as Wallpaper Engine can cause performance issues with this project that prevent the game from rendering correctly. Disabling such software is recommended.
+* The game freezes when opening the controls while in-game.
+* The game crashes while trying to load the award ceremony cutscene.
 
 ## Building
 Instructions on how to build this project can be found in the [BUILDING.md](BUILDING.md) file.
