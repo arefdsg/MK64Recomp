@@ -8,13 +8,23 @@ output_func_path = "RecompiledFuncs"
 symbols_file_path = "MK64RecompSyms/mk64.us.syms.toml"
 rom_file_path = "mk64.us.z64"
 
+manual_funcs = [
+    { name = "osWritebackDCacheAll_stub", section = ".main", vram = 0x800cd890, size = 0x30 },
+    { name = "osInvalICache_stub", section = ".main", vram = 0x800CDB00, size = 0x80 },
+    { name = "osGetCount_stub", section = ".main", vram = 0x800D11A0, size = 0x10 },
+]
+
 [patches]
 stubs = [
-	"__osPfsDeclearPage"
+	
 ]
 
 ignored = [
-
+	"__osBlockSum",
+	"__osPfsDeclearPage",
+	"osWritebackDCacheAll_stub",
+	"osInvalICache_stub",
+	"osGetCount_stub",
 ]
 
 [[patches.instruction]]
