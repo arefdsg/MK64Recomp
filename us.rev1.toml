@@ -16,16 +16,14 @@ manual_funcs = [
 
 [patches]
 stubs = [
-	
+	"osWritebackDCacheAll_stub",
+	"osInvalICache_stub",
+	"osGetCount_stub",
 ]
 
 ignored = [
 	"__osBlockSum",
 	"__osPfsDeclearPage",
- 	#uncomment if regenerating symbol tomls
-	#"osWritebackDCacheAll_stub",
-	#"osInvalICache_stub",
-	#"osGetCount_stub",
 ]
 
 [[patches.instruction]]
