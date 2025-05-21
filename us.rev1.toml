@@ -18,11 +18,6 @@ ignored = [
 ]
 
 [[patches.instruction]]
-func = "func_80040C54"
-vram = 0x80040C8C
-value = 0x00000000
-
-[[patches.instruction]]
 func = "func_802A8348"
 vram = 0x802A8380
 value = 0x00000000
