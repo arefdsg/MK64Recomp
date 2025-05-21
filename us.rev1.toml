@@ -22,9 +22,10 @@ stubs = [
 ignored = [
 	"__osBlockSum",
 	"__osPfsDeclearPage",
-	"osWritebackDCacheAll_stub",
-	"osInvalICache_stub",
-	"osGetCount_stub",
+ 	#uncomment if regenerating symbol tomls
+	#"osWritebackDCacheAll_stub",
+	#"osInvalICache_stub",
+	#"osGetCount_stub",
 ]
 
 [[patches.instruction]]
