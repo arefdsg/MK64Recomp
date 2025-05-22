@@ -94,26 +94,6 @@ vram = 0x800B5B58
 value = 0x00000000
 
 [[patches.instruction]]
-func = "__osBlockSum"
-vram = 0x800CFF80
-value = 0x00000000
-
-[[patches.instruction]]
-func = "__osBlockSum"
-vram = 0x800CFFE0
-value = 0x00000000
-
-[[patches.instruction]]
-func = "__osBlockSum"
-vram = 0x800D0028
-value = 0x00000000
-
-[[patches.instruction]]
-func = "__osBlockSum"
-vram = 0x800CFFC0
-value = 0x00000000
-
-[[patches.instruction]]
 func = "debug_print_ghost_kart_character_id"
 vram = 0x800B4588
 value = 0x00000000
