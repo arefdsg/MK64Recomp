@@ -30,7 +30,6 @@
 #define cosf __cosf_recomp
 #define bzero bzero_recomp
 #define gRandFloat sRandFloat
-#include "global.h"
 #include "rt64_extended_gbi.h"
 
 #ifndef gEXFillRectangle
@@ -72,14 +71,6 @@
 int recomp_printf(const char* fmt, ...);
 float recomp_powf(float, float);
 
-typedef enum {
-    /* 0 */ PICTO_BOX_STATE_OFF,         // Not using the pictograph
-    /* 1 */ PICTO_BOX_STATE_LENS,        // Looking through the lens of the pictograph
-    /* 2 */ PICTO_BOX_STATE_SETUP_PHOTO, // Looking at the photo currently taken
-    /* 3 */ PICTO_BOX_STATE_PHOTO
-} PictoBoxState;
-
-
 #define INCBIN(identifier, filename)          \
     asm(".pushsection .rodata\n"              \
         "\t.local " #identifier "\n"          \
@@ -91,15 +82,6 @@ typedef enum {
         "\t.balign 8\n"                       \
         "\t.popsection\n");                   \
     extern u8 identifier[]
-
-void View_ApplyInterpolate(View* view, s32 mask, bool reset_interpolation_state);
-
-void set_camera_skipped(bool skipped);
-void clear_camera_skipped();
-void edit_billboard_groups(PlayState* play);
-bool camera_was_skipped();
-void room_load_hook(PlayState* play, Room* room);
-void draw_autosave_icon(PlayState* play);
 
 void recomp_crash(const char* err);
 

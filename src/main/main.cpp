@@ -644,7 +644,7 @@ int main(int argc, char** argv) {
     recomputil::register_data_api_exports();
 
     zelda64::register_overlays();
-    //zelda64::register_patches();
+    zelda64::register_patches();
     recomputil::init_extended_actor_data();
     zelda64::load_config();
 

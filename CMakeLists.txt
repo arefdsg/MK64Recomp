@@ -88,61 +88,61 @@ file(GLOB FUNC_CXX_SOURCES ${CMAKE_SOURCE_DIR}/RecompiledFuncs/*.cpp)
 target_sources(RecompiledFuncs PRIVATE ${FUNC_C_SOURCES} ${FUNC_CXX_SOURCES})
 
 # PatchesLib - Library containing the recompiled output for any custom function patches
-#add_library(PatchesLib STATIC)
-#
-#target_compile_options(PatchesLib PRIVATE
+add_library(PatchesLib STATIC)
+
+target_compile_options(PatchesLib PRIVATE
     # -Wno-unused-but-set-variable
-#    -fno-strict-aliasing
-#    -Wno-unused-variable
-#    -Wno-implicit-function-declaration
-#)
-#
-#target_include_directories(PatchesLib PRIVATE
-#    ${CMAKE_SOURCE_DIR}/include
-#    ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime/ultramodern/include
-#    ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime/librecomp/include
-#    ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime/N64Recomp/include
-#)
-#
-#target_sources(PatchesLib PRIVATE
-#    ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches.c
-#    ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches_bin.c
-#)
-#
-#set_source_files_properties(${CMAKE_SOURCE_DIR}/RecompiledPatches/patches.c PROPERTIES COMPILE_FLAGS -fno-strict-aliasing)
-#
+    -fno-strict-aliasing
+    -Wno-unused-variable
+    -Wno-implicit-function-declaration
+)
+
+target_include_directories(PatchesLib PRIVATE
+    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime/ultramodern/include
+    ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime/librecomp/include
+    ${CMAKE_SOURCE_DIR}/lib/N64ModernRuntime/N64Recomp/include
+)
+
+target_sources(PatchesLib PRIVATE
+    ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches.c
+    ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches_bin.c
+)
+
+set_source_files_properties(${CMAKE_SOURCE_DIR}/RecompiledPatches/patches.c PROPERTIES COMPILE_FLAGS -fno-strict-aliasing)
+
 # Build patches elf
-#if(NOT DEFINED PATCHES_C_COMPILER)
-#    set(PATCHES_C_COMPILER clang)
-#endif()
-#
-#if(NOT DEFINED PATCHES_LD)
-#    set(PATCHES_LD ld.lld)
-#endif()
-#
-#add_custom_target(PatchesBin
-#    COMMAND ${CMAKE_COMMAND} -E env CC=${PATCHES_C_COMPILER} LD=${PATCHES_LD} make
-#    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/patches
-#    BYPRODUCTS ${CMAKE_SOURCE_DIR}/patches/patches.elf
-#)
-#
+if(NOT DEFINED PATCHES_C_COMPILER)
+    set(PATCHES_C_COMPILER clang)
+endif()
+
+if(NOT DEFINED PATCHES_LD)
+    set(PATCHES_LD ld.lld)
+endif()
+
+add_custom_target(PatchesBin
+    COMMAND ${CMAKE_COMMAND} -E env CC=${PATCHES_C_COMPILER} LD=${PATCHES_LD} make
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/patches
+    BYPRODUCTS ${CMAKE_SOURCE_DIR}/patches/patches.elf
+)
+
 # Generate patches_bin.c from patches.bin
-#add_custom_command(OUTPUT ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches_bin.c
-#    COMMAND file_to_c ${CMAKE_SOURCE_DIR}/patches/patches.bin mm_patches_bin ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches_bin.c ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches_bin.h
-#    DEPENDS ${CMAKE_SOURCE_DIR}/patches/patches.bin
-#)
-#
+add_custom_command(OUTPUT ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches_bin.c
+    COMMAND file_to_c ${CMAKE_SOURCE_DIR}/patches/patches.bin mm_patches_bin ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches_bin.c ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches_bin.h
+    DEPENDS ${CMAKE_SOURCE_DIR}/patches/patches.bin
+)
+
 # Recompile patches elf into patches.c and patches.bin
-#add_custom_command(OUTPUT
-#                       ${CMAKE_SOURCE_DIR}/patches/patches.bin
-#                       ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches.c
-#                       ${CMAKE_SOURCE_DIR}/RecompiledPatches/recomp_overlays.inl
-#                       ${CMAKE_SOURCE_DIR}/RecompiledPatches/funcs.h
+add_custom_command(OUTPUT
+                       ${CMAKE_SOURCE_DIR}/patches/patches.bin
+                       ${CMAKE_SOURCE_DIR}/RecompiledPatches/patches.c
+                       ${CMAKE_SOURCE_DIR}/RecompiledPatches/recomp_overlays.inl
+                       ${CMAKE_SOURCE_DIR}/RecompiledPatches/funcs.h
                    # TODO: Look into why modifying patches requires two builds to take
-#                   COMMAND ./N64Recomp patches.toml
-#                   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-#                   DEPENDS ${CMAKE_SOURCE_DIR}/patches/patches.elf
-#)
+                   COMMAND ./N64Recomp patches.toml
+                   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+                   DEPENDS ${CMAKE_SOURCE_DIR}/patches/patches.elf
+)
 
 # Main executable
 add_executable(MK64Recompiled)
@@ -151,7 +151,7 @@ set (SOURCES
     ${CMAKE_SOURCE_DIR}/src/main/main.cpp
     ${CMAKE_SOURCE_DIR}/src/main/support.cpp
     ${CMAKE_SOURCE_DIR}/src/main/register_overlays.cpp
-    #${CMAKE_SOURCE_DIR}/src/main/register_patches.cpp
+    ${CMAKE_SOURCE_DIR}/src/main/register_patches.cpp
     ${CMAKE_SOURCE_DIR}/src/main/rt64_render_context.cpp
 
     ${CMAKE_SOURCE_DIR}/src/game/input.cpp
@@ -198,7 +198,6 @@ set (SOURCES
     ${CMAKE_SOURCE_DIR}/src/ui/elements/ui_toggle.cpp
 
     ${CMAKE_SOURCE_DIR}/rsp/aspMain.cpp
-    #${CMAKE_SOURCE_DIR}/rsp/njpgdspMain.cpp
 
     ${CMAKE_SOURCE_DIR}/lib/RmlUi/Backends/RmlUi_Platform_SDL.cpp
 )
@@ -350,7 +349,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
 endif()
 
 target_link_libraries(MK64Recompiled PRIVATE
-    #PatchesLib
+    PatchesLib
     RecompiledFuncs
     librecomp
     ultramodern
