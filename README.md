@@ -1,6 +1,7 @@
 # Mario Kart 64: Recompiled
 Mario Kart 64: Recompiled is a project that uses [N64: Recompiled](https://github.com/Mr-Wiseguy/N64Recomp) to **statically recompile** Mario Kart 64 into a native port with many new features, enhancements, and extensive mod support. This project uses [RT64](https://github.com/rt64/rt64) as the rendering engine to provide graphical enhancements.
 
+If you're here you're most likely looking for [https://github.com/sonicdcer/MarioKart64Recomp](https://github.com/sonicdcer/MarioKart64Recomp) instead, which has no relation to here despite using the same game and software.
 
 ## Table of Contents
 * [System Requirements](#system-requirements)
